@@ -7,6 +7,7 @@ const dir = path.dirname(process.execPath);
 let log = ""
 
 const loging = (text) => {
+  console.log(text)
   log = log + "\n" + text;
   fs.writeFileSync(path.join(dir,'log.txt'), log);
 }
@@ -24,7 +25,7 @@ const hjson2json = (hjsonFilePath) => {
     // Write the JSON content to the output file
     fs.writeFileSync(jsonFilePath, jsonString, 'utf8');
   } catch (parseError) {
-    loging('Error parsing HJSON:' + toString(parseError));
+    loging('Error parsing HJSON:' + parseError);
   }
 }
 
